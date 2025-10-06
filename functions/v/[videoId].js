@@ -36,25 +36,25 @@ function generateHTML(video, videoId) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>${escapeHtml(video.caption)} - ${price} | TextGB</title>
+  <title>${escapeHtml(video.caption)} - ${price} | WeiBao</title>
   
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="video.other" />
   <meta property="og:url" content="https://weibao.africa/v/${videoId}" />
   <meta property="og:title" content="${escapeHtml(video.caption)} - ${price}" />
-  <meta property="og:description" content="Buy this product from ${escapeHtml(video.userName)} on TextGB" />
+  <meta property="og:description" content="Buy this product from ${escapeHtml(video.userName)} on WeiBao" />
   <meta property="og:image" content="${video.thumbnailUrl}" />
   <meta property="og:image:width" content="720" />
   <meta property="og:image:height" content="1280" />
   <meta property="og:video" content="${video.videoUrl}" />
   <meta property="og:video:secure_url" content="${video.videoUrl}" />
   <meta property="og:video:type" content="video/mp4" />
-  <meta property="og:site_name" content="TextGB Marketplace" />
+  <meta property="og:site_name" content="WeiBao Marketplace" />
   
   <!-- Twitter Card -->
   <meta name="twitter:card" content="player" />
   <meta name="twitter:title" content="${escapeHtml(video.caption)} - ${price}" />
-  <meta name="twitter:description" content="Buy this product from ${escapeHtml(video.userName)} on TextGB" />
+  <meta name="twitter:description" content="Buy this product from ${escapeHtml(video.userName)} on WeiBao" />
   <meta name="twitter:image" content="${video.thumbnailUrl}" />
   
   <style>
@@ -110,7 +110,7 @@ function generateHTML(video, videoId) {
   <script>
     // Deep link logic
     setTimeout(function() {
-      window.location.href = 'textgb://video/${videoId}';
+      window.location.href = 'weibao://video/${videoId}';
       
       // Fallback to store after 2 seconds
       setTimeout(function() {
@@ -118,9 +118,9 @@ function generateHTML(video, videoId) {
         var isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
         
         if (isAndroid) {
-          window.location.href = 'https://play.google.com/store/apps/details?id=com.textgb.app';
+          window.location.href = 'https://app.weibao.africa/weibao.apk';
         } else if (isIOS) {
-          window.location.href = 'https://apps.apple.com/app/textgb/id123456789';
+          window.location.href = 'https://app.weibao.africa/weibao.apk';
         }
       }, 2000);
     }, 100);
@@ -133,11 +133,11 @@ function generateHTML(video, videoId) {
     <p class="price">${price}</p>
     <p class="seller">Sold by ${escapeHtml(video.userName)}</p>
     <div>
-      <p class="status">Opening TextGB app...</p>
+      <p class="status">Opening WeiBao app...</p>
       <p class="hint">Don't have the app? You'll be redirected to download it.</p>
     </div>
     <div>
-      <a href="textgb://video/${videoId}" class="button">Open in App</a>
+      <a href="weibao://video/${videoId}" class="button">Open in App</a>
       <a href="${video.videoUrl}" class="button button-secondary">View Video</a>
     </div>
   </div>
